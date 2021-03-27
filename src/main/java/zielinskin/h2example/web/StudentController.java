@@ -16,8 +16,8 @@ class StudentController {
     }
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-    public void save(@RequestBody Student studentEntity) {
-        service.save(studentEntity);
+    public void save(@RequestBody Student view) {
+        service.save(view);
     }
 
     @GetMapping()
