@@ -1,6 +1,7 @@
 Local Results:
 
 -----------------------------------------------------------------------
+
 Chrome:
 
 loading 1mil records (no render):
@@ -13,13 +14,6 @@ loading 2mil records (render):
 
 loading 2mil records (no-render):
 12.4s (1.17s download)
-
-----------------------------------------------------------------------
-Java:
-
-start up:
-Started Application in 3.725 seconds (JVM running for 4.192)
-Started Application in 3.662 seconds (JVM running for 4.139)
 
 saving 10k records:
 816ms
@@ -35,9 +29,20 @@ saving 1mil records:
 saving next 1mil records:
 45.44s
 
+----------------------------------------------------------------------
+
+Java:
+
+start up:
+Started Application in 3.725 seconds (JVM running for 4.192)
+Started Application in 3.662 seconds (JVM running for 4.139)
+Started Application in 3.76 seconds (JVM running for 4.224)
+
 loading 1mil records:
 6.42s
 5.66s
 5.48s
+
+----------------------------------------------------------------------
 
 Workstation PC:
