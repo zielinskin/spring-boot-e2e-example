@@ -8,4 +8,3 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     generate-dll: true
     open-session-in-view: false
-    show-sql: true
