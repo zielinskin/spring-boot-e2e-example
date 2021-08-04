@@ -1,0 +1,29 @@
+Local Results:
+
+start up:
+Started Application in 3.725 seconds (JVM running for 4.192)
+Started Application in 3.662 seconds (JVM running for 4.139)
+
+saving 10k records:
+816ms
+664ms
+
+saving next 10k records:
+480ms
+
+saving 1mil records:
+46.58s
+
+loading 1mil records (no render):
+6.4s (571ms download)
+
+saving next 1mil records:
+45.44s
+
+loading 2mil records (render):
+53.97s (43.10s download)
+
+loading 2mil records (no-render):
+12.4s (1.17s download)
+
+Workstation PC:

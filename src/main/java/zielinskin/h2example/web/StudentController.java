@@ -29,4 +29,10 @@ class StudentController {
     public void delete(@PathVariable Integer id) {
         service.delete(id);
     }
+
+
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT}, value = "/bulk")
+    public void saveBulk(@RequestBody List<Student> view) {
+        service.save(view);
+    }
 }
