@@ -15,13 +15,6 @@ loading 2mil records (render):
 loading 2mil records (no-render):
 12.4s (1.17s download)
 
-saving 10k records:
-816ms
-664ms
-
-saving next 10k records:
-480ms
-
 saving 1mil records:
 46.58s
 45.11s
@@ -38,7 +31,7 @@ Started Application in 3.725 seconds (JVM running for 4.192)
 Started Application in 3.662 seconds (JVM running for 4.139)
 Started Application in 3.76 seconds (JVM running for 4.224)
 
-loading 1mil records:
+loading 1mil records: (no download time available)
 6.42s
 5.66s
 5.48s
@@ -46,3 +39,41 @@ loading 1mil records:
 ----------------------------------------------------------------------
 
 Workstation PC:
+
+-----------------------------------------------------------------------
+
+Chrome:
+
+loading 1mil records (no render):
+5.14s (821ms)
+4.8s (858ms)
+4.82s (863ms)
+
+loading 2mil records (render):
+50.79 (38.47s)
+
+loading 2mil records (no-render):
+9.55s (1.64s)
+10.56 (1.58s)
+10.23 (1.56s)
+
+saving 1mil records:
+2.8m
+2.7m
+2.7m
+
+saving next 1mil records:
+2.8m
+
+----------------------------------------------------------------------
+
+Java:
+
+start up:
+Started Application in 4.233 seconds (JVM running for 4.831)
+Started Application in 4.841 seconds (JVM running for 5.444)
+
+loading 1mil records:
+6.6s
+4.161s
+4.331s
