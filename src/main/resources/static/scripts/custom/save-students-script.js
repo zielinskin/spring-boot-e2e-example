@@ -41,3 +41,21 @@ curStudents = data;
 }
 });
 }
+
+
+function testEndpoint() {
+let url = $("#url").val();
+let authHeader = $("#authHeader").val();
+
+$.ajax({
+    type: "POST",
+    url: "/testEndpoint",
+    // The key needs to match your method's input parameter (case-sensitive).
+    data: JSON.stringify({endpoint: url, authorizationHeader: authHeader}),
+    contentType: "application/json; charset=utf-8",
+    dataType: "json",
+success: data => {
+$("#result").html(data);
+}
+});
+}

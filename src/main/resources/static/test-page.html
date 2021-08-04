@@ -4,8 +4,25 @@
     <script src="scripts/custom/save-students-script.js"></script>
 </head>
 <body>
+<div>
+    <label>Test Saving And Read: Chrome</label>
+    <div>
 <input type="text" id="studentInput"/>
 <button type="button" onclick="saveStudents();">Save</button>
 <button type="button" onclick="loadStudents();">Load</button>
+    </div>
+</div>
+<hr>
+<div>
+    <label>Test Read: Java</label>
+    <div>
+        <label>Url <input id="url"></label>
+        <label>Auth Header <input id="authHeader"></label>
+        <button onclick="testEndpoint();">Test</button>
+    </div>
+    <div>
+        <label>Result: <span id="result"></span>(ms)</label>
+    </div>
+</div>
 </body>
 </html>
