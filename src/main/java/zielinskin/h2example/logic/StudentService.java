@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import zielinskin.h2example.data.StudentEntity;
 import zielinskin.h2example.data.StudentRepository;
-import zielinskin.h2example.model.Student;
+import zielinskin.h2example.view.Student;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,16 +39,25 @@ public class StudentService {
                 .collect(Collectors.toList());
     }
 
+    public void applyCurve(Double factor) {
+        studentRepository.saveAll(studentRepository.findAll().stream()
+                .peek(entity ->
+                        entity.setGrade(entity.getGrade() * factor))
+                .collect(Collectors.toSet()));
+    }
+
     private Student mapToModel(StudentEntity entity) {
-        return new Student(entity.getId(), entity.getName());
+        return new Student(entity.getId(),
+                entity.getName(),
+                entity.getGrade());
     }
 
     private StudentEntity mapToEntity(Student model) {
-        StudentEntity entity = Optional.ofNullable(model.getId())
-                .flatMap(studentRepository::findById)
-                .orElse(new StudentEntity());
+        StudentEntity entity = new StudentEntity();
 
+        entity.setId(model.getId());
         entity.setName(model.getName());
+        entity.setGrade(model.getGrade());
 
         return entity;
     }

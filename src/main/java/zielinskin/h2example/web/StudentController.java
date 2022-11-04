@@ -1,8 +1,9 @@
 package zielinskin.h2example.web;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import zielinskin.h2example.logic.StudentService;
-import zielinskin.h2example.model.Student;
+import zielinskin.h2example.view.Student;
 
 import java.util.List;
 
@@ -34,5 +35,11 @@ class StudentController {
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT}, value = "/bulk")
     public void saveBulk(@RequestBody List<Student> view) {
         service.save(view);
+    }
+
+    @PostMapping("/applyCurve")
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
+    public void applyCurve(@RequestBody Double factor) {
+        service.applyCurve(factor);
     }
 }

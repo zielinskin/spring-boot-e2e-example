@@ -1,15 +1,15 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.4.3'
+    id 'org.springframework.boot' version '2.6.4'
 }
 
 apply plugin: "io.spring.dependency-management"
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Hoxton.SR10"
-    }
-}
+//dependencyManagement {
+//    imports {
+//        mavenBom "org.springframework.cloud:spring-cloud-starter-parent:Hoxton.SR10"
+//    }
+//}
 
 group 'zielinskin.h2-training'
 
@@ -23,11 +23,10 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.18.Final'
-    implementation("io.springfox:springfox-swagger2:2.9.2")
-    implementation("io.springfox:springfox-swagger-ui:2.9.2")
+    implementation group: 'org.hibernate', name: 'hibernate-core'
+    implementation "org.springdoc:springdoc-openapi-ui:1.6.6"
 
-    runtime group: 'com.h2database', name: 'h2', version: '2.1.214'
+    implementation group: 'com.h2database', name: 'h2', version: '2.0.204'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'
     testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'

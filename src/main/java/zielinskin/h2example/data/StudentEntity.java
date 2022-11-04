@@ -11,6 +11,7 @@ public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+    private Double grade;
 
     public Integer getId() {
         return id;
@@ -26,5 +27,13 @@ public class StudentEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Double getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Double grade) {
+        this.grade = grade;
     }
 }

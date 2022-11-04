@@ -8,3 +8,11 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     generate-dll: true
     open-session-in-view: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+hibernate:
+  dialect: "org.hibernate.dialect.H2Dialect"
+
+
