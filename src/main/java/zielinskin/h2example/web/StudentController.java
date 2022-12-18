@@ -42,4 +42,8 @@ class StudentController {
     public void applyCurve(@RequestBody Double factor) {
         service.applyCurve(factor);
     }
+
+    public Integer getResults(@RequestBody String request) {
+
+    }
 }
