@@ -1,9 +1,6 @@
 package zielinskin.h2example.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class StudentEntity {
@@ -11,7 +8,11 @@ public class StudentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
+
     private Double grade;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    public LectureEntity lecture;
 
     public Integer getId() {
         return id;
@@ -35,5 +36,13 @@ public class StudentEntity {
 
     public void setGrade(Double grade) {
         this.grade = grade;
+    }
+
+    public LectureEntity getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(LectureEntity lecture) {
+        this.lecture = lecture;
     }
 }
