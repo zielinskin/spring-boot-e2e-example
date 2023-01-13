@@ -49,8 +49,7 @@ public class StudentService {
     private Student mapToModel(StudentEntity entity) {
         return new Student(entity.getId(),
                 entity.getName(),
-                entity.getGrade(),
-                null);
+                entity.getGrade());
     }
 
     private StudentEntity mapToEntity(Student model) {
