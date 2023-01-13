@@ -36,7 +36,6 @@ public class LectureEntity {
         this.name = name;
     }
 
-    @JsonIgnore
     public Set<StudentEntity> getStudents() {
         return students;
     }

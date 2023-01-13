@@ -1,5 +1,6 @@
 package zielinskin.h2example.web;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import zielinskin.h2example.logic.StudentService;
@@ -24,6 +25,16 @@ class StudentController {
     @GetMapping()
     public List<Student> get() {
         return service.get();
+    }
+
+    @GetMapping("/{id}")
+    public Student get(@PathVariable Integer id) {
+        return service.get(id);
+    }
+
+    @GetMapping("/search")
+    public List<Student> search(@RequestParam("gradeLowerThan") Double gradeLowerThan) {
+        return service.search(gradeLowerThan);
     }
 
     @DeleteMapping("/{id}")

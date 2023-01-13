@@ -7,7 +7,6 @@ import zielinskin.h2example.data.StudentRepository;
 import zielinskin.h2example.view.Student;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,6 +34,19 @@ public class StudentService {
 
     public List<Student> get() {
         return studentRepository.findAll().stream()
+                .map(this::mapToModel)
+                .collect(Collectors.toList());
+    }
+
+    public Student get(Integer id) {
+        return studentRepository.findById(id)
+                .map(this::mapToModel)
+                .orElseThrow(() ->
+                        new RuntimeException("There wasn't one, duh."));
+    }
+
+    public List<Student> search(Double gradeLowerThan) {
+        return studentRepository.findByGradeLessThanEqual(gradeLowerThan).stream()
                 .map(this::mapToModel)
                 .collect(Collectors.toList());
     }
