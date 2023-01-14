@@ -26,4 +26,7 @@ public class LectureController {
     public List<LectureEntity> saveLecture() {
         return lectureService.getAll();
     }
+
+    @GetMapping("/{id}")
+    public Lecture get(@PathVariable Integer ID, Integer id) {return lectureService.get(id);}
 }

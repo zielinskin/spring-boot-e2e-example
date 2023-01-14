@@ -38,6 +38,7 @@ class StudentController {
     @GetMapping("/searchByGradeGreaterThan")
     public List<Student> searchByGradeGreaterThan(@RequestParam("grade") Double grade) {
         return service.searchByGradeGreaterThan(grade);
+        //public(visibility) List<Student>(return type)
     }
 
     @DeleteMapping("/{id}")
@@ -53,7 +54,6 @@ class StudentController {
 
     @PostMapping("/applyCurve")
     @ResponseStatus(value = HttpStatus.NO_CONTENT)
-    public void applyCurve(@RequestBody Double factor) {
-        service.applyCurve(factor);
+    public void applyCurve(@RequestBody Double factor) {service.applyCurve(factor);
     }
 }

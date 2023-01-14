@@ -15,8 +15,7 @@ public class LectureEntity {
     public String name;
 
     @OneToMany(
-            mappedBy = "lecture",
-            cascade = CascadeType.ALL
+            mappedBy = "lecture"
     )
     public Set<StudentEntity> students = new HashSet<>();
 

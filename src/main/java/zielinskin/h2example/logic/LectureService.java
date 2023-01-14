@@ -50,4 +50,8 @@ public class LectureService {
         entity.setId(view.getId());
         return entity;
     }
+    public Lecture get(Integer id) {
+        return lectureRepository.findById(id)
+                .map(this::mapToEntity);//Model?LectureEntity?)
+    }
 }
