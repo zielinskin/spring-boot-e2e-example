@@ -45,8 +45,13 @@ public class StudentService {
                         new RuntimeException("There wasn't one, duh."));
     }
 
-    public List<Student> search(Double gradeLowerThan) {
-        return studentRepository.findByGradeLessThanEqual(gradeLowerThan).stream()
+    public List<Student> searchByGradeLowerThan(Double grade) {
+        return studentRepository.findByGradeLessThanEqual(grade).stream()
+                .map(this::mapToModel)
+                .collect(Collectors.toList());
+    }
+    public List<Student> searchByGradeGreaterThan(Double grade) {
+        return studentRepository.findByGradeGreaterThanEqual(grade).stream()
                 .map(this::mapToModel)
                 .collect(Collectors.toList());
     }

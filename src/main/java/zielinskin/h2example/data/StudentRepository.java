@@ -7,4 +7,5 @@ import java.util.List;
 public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
     List<StudentEntity> findAll();
     List<StudentEntity> findByGradeLessThanEqual(Double grade);
+    List<StudentEntity> findByGradeGreaterThanEqual(Double grade);
 }
