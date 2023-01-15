@@ -28,5 +28,5 @@ public class LectureController {
     }
 
     @GetMapping("/{id}")
-    public Lecture get(@PathVariable Integer ID, Integer id) {return lectureService.get(id);}
+    public Lecture get(@PathVariable Integer id) {return lectureService.get(id);}
 }

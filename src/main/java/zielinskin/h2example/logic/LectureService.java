@@ -25,6 +25,12 @@ public class LectureService {
     public List<LectureEntity> getAll() {
         return lectureRepository.findAll();
     }
+    public Lecture get(Integer id) {
+        return lectureRepository.findById(id)
+                .map(this::mapToModel)
+                .orElseThrow(() ->
+                        new RuntimeException("There wasn't one, duh."));
+    }
 
     private LectureEntity mapToEntity(Lecture lecture) {
         LectureEntity entity = new LectureEntity();
@@ -50,8 +56,15 @@ public class LectureService {
         entity.setId(view.getId());
         return entity;
     }
-    public Lecture get(Integer id) {//make sure Integer id doesn't conflict with students. change id to LectureId?
-        return lectureRepository.findById(id)//findByLectureId?
-                .map(this::mapToEntity);//Students use Model? LectureEntity?
+    private Lecture mapToModel(LectureEntity entity) {
+        return new Lecture(entity.getId(),
+                entity.getName(),
+                entity.getStudents().stream()
+                        .map(sEntity ->{
+                            return new Student(sEntity.getId(),
+                                    sEntity.getName(),
+                                    sEntity.getGrade());
+                        })
+                        .collect(Collectors.toSet()));
     }
 }
