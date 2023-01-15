@@ -50,8 +50,8 @@ public class LectureService {
         entity.setId(view.getId());
         return entity;
     }
-    public Lecture get(Integer id) {
-        return lectureRepository.findById(id)
-                .map(this::mapToEntity);//Model?LectureEntity?)
+    public Lecture get(Integer id) {//make sure Integer id doesn't conflict with students. change id to LectureId?
+        return lectureRepository.findById(id)//findByLectureId?
+                .map(this::mapToEntity);//Students use Model? LectureEntity?
     }
 }

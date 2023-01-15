@@ -42,7 +42,7 @@ public class StudentService {
         return studentRepository.findById(id)
                 .map(this::mapToModel)
                 .orElseThrow(() ->
-                        new RuntimeException("There wasn't one, duh."));
+                         new RuntimeException("There wasn't one, duh."));
     }
 
     public List<Student> searchByGradeLowerThan(Double grade) {
