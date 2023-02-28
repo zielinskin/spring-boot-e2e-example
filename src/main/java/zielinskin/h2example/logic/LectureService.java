@@ -7,6 +7,7 @@ import zielinskin.h2example.data.StudentEntity;
 import zielinskin.h2example.view.Lecture;
 import zielinskin.h2example.view.Student;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -18,6 +19,7 @@ public class LectureService {
         this.lectureRepository = lectureRepository;
     }
 
+    @Transactional
     public void save(Lecture lecture) {
         lectureRepository.save(mapToEntity(lecture));
     }

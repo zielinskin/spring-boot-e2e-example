@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-@EnableWebMvc
 @EntityScan(basePackages={"zielinskin.h2example.data"})
 @EnableJpaRepositories(basePackages = {"zielinskin.h2example.data"})
 public class Application implements WebMvcConfigurer {
@@ -25,6 +25,8 @@ public class Application implements WebMvcConfigurer {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
+
 
     @Bean
     public GroupedOpenApi studentDocket() {
