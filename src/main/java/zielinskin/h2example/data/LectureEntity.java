@@ -1,7 +1,5 @@
 package zielinskin.h2example.data;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -10,15 +8,15 @@ import java.util.Set;
 public class LectureEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
 
-    public String name;
+    private String name;
 
     @OneToMany(
             mappedBy = "lecture",
             cascade = CascadeType.ALL
     )
-    public Set<StudentEntity> students = new HashSet<>();
+    private Set<StudentEntity> students = new HashSet<>();
 
     public Integer getId() {
         return id;

@@ -12,7 +12,7 @@ public class StudentEntity {
     private Double grade;
     @ManyToOne
     @JoinColumn(name = "student_id")
-    public LectureEntity lecture;
+    private LectureEntity lecture;
 
     public Integer getId() {
         return id;
