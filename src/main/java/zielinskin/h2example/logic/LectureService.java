@@ -1,5 +1,6 @@
 package zielinskin.h2example.logic;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import zielinskin.h2example.data.LectureEntity;
 import zielinskin.h2example.data.LectureRepository;
@@ -7,7 +8,6 @@ import zielinskin.h2example.data.StudentEntity;
 import zielinskin.h2example.view.Lecture;
 import zielinskin.h2example.view.Student;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,8 +24,10 @@ public class LectureService {
         lectureRepository.save(mapToEntity(lecture));
     }
 
-    public List<LectureEntity> getAll() {
-        return lectureRepository.findAll();
+    public List<Lecture> getAll() {
+        return lectureRepository.findAll().stream()
+                .map(this::mapToView)
+                .collect(Collectors.toList());
     }
 
     private LectureEntity mapToEntity(Lecture lecture) {
@@ -51,5 +53,17 @@ public class LectureService {
         entity.setName(view.getName());
         entity.setId(view.getId());
         return entity;
+    }
+
+    private Lecture mapToView(LectureEntity view) {
+        return new Lecture(
+                view.getId(),
+                view.getName(),
+                view.getStudents().stream()
+                        .map(student ->
+                                new Student(student.getId(),
+                                        student.getName(),
+                                        student.getGrade()))
+                        .collect(Collectors.toSet()));
     }
 }

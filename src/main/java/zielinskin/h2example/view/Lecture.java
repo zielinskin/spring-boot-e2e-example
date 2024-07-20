@@ -1,9 +1,7 @@
 package zielinskin.h2example.view;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import zielinskin.h2example.data.StudentEntity;
 
-import javax.persistence.*;
 import java.util.Set;
 
 public class Lecture {

@@ -34,20 +34,20 @@ public class StudentService {
 
     public List<Student> get() {
         return studentRepository.findAll().stream()
-                .map(this::mapToModel)
+                .map(this::mapToView)
                 .collect(Collectors.toList());
     }
 
     public Student get(Integer id) {
         return studentRepository.findById(id)
-                .map(this::mapToModel)
+                .map(this::mapToView)
                 .orElseThrow(() ->
                         new RuntimeException("There wasn't one, duh."));
     }
 
     public List<Student> search(Double gradeLowerThan) {
         return studentRepository.findByGradeLessThanEqual(gradeLowerThan).stream()
-                .map(this::mapToModel)
+                .map(this::mapToView)
                 .collect(Collectors.toList());
     }
 
@@ -58,7 +58,7 @@ public class StudentService {
                 .collect(Collectors.toSet()));
     }
 
-    private Student mapToModel(StudentEntity entity) {
+    private Student mapToView(StudentEntity entity) {
         return new Student(entity.getId(),
                 entity.getName(),
                 entity.getGrade());

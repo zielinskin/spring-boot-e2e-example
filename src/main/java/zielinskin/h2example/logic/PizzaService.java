@@ -1,11 +1,11 @@
 package zielinskin.h2example.logic;
 
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 import zielinskin.h2example.data.PizzaEntity;
 import zielinskin.h2example.data.PizzaRepository;
 import zielinskin.h2example.view.Pizza;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;

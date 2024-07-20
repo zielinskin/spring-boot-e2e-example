@@ -2,7 +2,6 @@ package zielinskin.h2example.web;
 
 
 import org.springframework.web.bind.annotation.*;
-import zielinskin.h2example.data.LectureEntity;
 import zielinskin.h2example.logic.LectureService;
 import zielinskin.h2example.view.Lecture;
 
@@ -23,7 +22,7 @@ public class LectureController {
     }
 
     @GetMapping()
-    public List<LectureEntity> saveLecture() {
+    public List<Lecture> saveLecture() {
         return lectureService.getAll();
     }
 }

@@ -1,6 +1,7 @@
 package zielinskin.h2example.data;
 
-import javax.persistence.*;
+
+import jakarta.persistence.*;
 
 @Entity
 public class StudentEntity {
