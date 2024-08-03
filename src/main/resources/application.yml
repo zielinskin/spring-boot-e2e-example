@@ -12,6 +12,12 @@ spring:
     pathmatch:
       matching-strategy: ant-path-matcher
 
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: true
+
+
 logging:
   level:
     root: DEBUG
