@@ -98,12 +98,8 @@ public class Application implements WebMvcConfigurer {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/login")
-                        .permitAll()
                         .anyRequest()
                         .hasRole("USER")
-                        .anyRequest()
-                        .permitAll()
                 )
                 .userDetailsService(userDetailsService)
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll);
