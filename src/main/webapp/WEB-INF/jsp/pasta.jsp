@@ -2,8 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
-        <title>View Items</title>
-        <link href="/static/css/style.css" rel="stylesheet">
+        <title>Pastas</title>
     </head>
     <body>
         <table>
