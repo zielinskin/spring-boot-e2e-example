@@ -5,24 +5,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
-import org.springframework.core.annotation.Order;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
@@ -72,8 +64,9 @@ public class Application implements WebMvcConfigurer {
     }
 
 
-    /*@Bean
-    UserDetailsManager users(DataSource dataSource) {
+    /* will uncomment when swapping to jdbc details service
+    @Bean
+    public UserDetailsManager userDetailsManager(DataSource dataSource) {
         UserDetails user = User.builder()
                 .passwordEncoder(new BCryptPasswordEncoder()::encode)
                 .username("user")
@@ -102,7 +95,7 @@ public class Application implements WebMvcConfigurer {
                         .hasRole("USER")
                 )
                 .userDetailsService(userDetailsService)
-                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll);
+                .formLogin(withDefaults());
         return http.build();
     }
 
