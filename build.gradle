@@ -1,5 +1,6 @@
 plugins {
     id 'java'
+    id 'war'
     id 'org.springframework.boot' version '3.3.2'
 }
 
@@ -14,13 +15,23 @@ repositories {
 }
 
 dependencies {
+    //spring
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
     implementation group: 'org.springframework', name: 'spring-webmvc'
+
+    //open api
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
 
+    //jsp
+    //todo: why can't this be a providedRuntime or runtimeOnly?
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+    implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.1'
+    implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
+
+    //h2
     runtimeOnly 'com.h2database:h2'
 
     testImplementation group: 'junit', name: 'junit', version: '4.12'

@@ -45,6 +45,7 @@ public class LectureService {
         return entity;
     }
 
+    //todo: probably make an entitymapper class or something for this logic so it's not duped
     private StudentEntity mapToEntity(Student view, LectureEntity lectureEntity) {
         StudentEntity entity = new StudentEntity();
 

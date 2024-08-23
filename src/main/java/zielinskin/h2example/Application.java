@@ -17,10 +17,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import javax.sql.DataSource;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.JstlView;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -29,6 +31,20 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableJpaRepositories(basePackages = {"zielinskin.h2example.data"})
 @EnableWebSecurity
 public class Application implements WebMvcConfigurer {
+
+    @Bean
+    public ViewResolver viewResolver() {
+        InternalResourceViewResolver bean = new InternalResourceViewResolver();
+        bean.setViewClass(JstlView.class);
+        bean.setPrefix("/WEB-INF/jsp/");
+        bean.setSuffix(".jsp");
+        return bean;
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        registry.viewResolver(viewResolver());
+    }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -130,6 +146,14 @@ public class Application implements WebMvcConfigurer {
         return GroupedOpenApi.builder()
                 .group("Pizzas")
                 .pathsToMatch("/pizzas/**")
+                .build();
+    }
+
+    @Bean
+    public GroupedOpenApi pastaDocket() {
+        return GroupedOpenApi.builder()
+                .group("Pastas")
+                .pathsToMatch("/pastas/**")
                 .build();
     }
 }
