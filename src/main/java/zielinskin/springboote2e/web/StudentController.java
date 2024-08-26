@@ -1,10 +1,9 @@
-package zielinskin.h2example.web;
+package zielinskin.springboote2e.web;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import zielinskin.h2example.logic.StudentService;
-import zielinskin.h2example.view.Student;
+import zielinskin.springboote2e.logic.StudentService;
+import zielinskin.springboote2e.view.Student;
 
 import java.util.List;
 

@@ -1,9 +1,9 @@
-package zielinskin.h2example.web;
+package zielinskin.springboote2e.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import zielinskin.h2example.logic.PastaService;
+import zielinskin.springboote2e.logic.PastaService;
 
 @Controller
 public class PastaMVController {

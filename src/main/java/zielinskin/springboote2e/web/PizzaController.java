@@ -1,8 +1,8 @@
-package zielinskin.h2example.web;
+package zielinskin.springboote2e.web;
 
 import org.springframework.web.bind.annotation.*;
-import zielinskin.h2example.logic.PizzaService;
-import zielinskin.h2example.view.Pizza;
+import zielinskin.springboote2e.logic.PizzaService;
+import zielinskin.springboote2e.view.Pizza;
 
 import java.util.List;
 

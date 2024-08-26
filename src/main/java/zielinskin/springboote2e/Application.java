@@ -1,4 +1,4 @@
-package zielinskin.h2example;
+package zielinskin.springboote2e;
 
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.boot.SpringApplication;

@@ -1,4 +1,4 @@
-package zielinskin.h2example.data;
+package zielinskin.springboote2e.data;
 
 import org.springframework.data.repository.CrudRepository;
 

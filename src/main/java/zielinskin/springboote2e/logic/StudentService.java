@@ -1,10 +1,10 @@
-package zielinskin.h2example.logic;
+package zielinskin.springboote2e.logic;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import zielinskin.h2example.data.StudentEntity;
-import zielinskin.h2example.data.StudentRepository;
-import zielinskin.h2example.view.Student;
+import zielinskin.springboote2e.data.StudentEntity;
+import zielinskin.springboote2e.data.StudentRepository;
+import zielinskin.springboote2e.view.Student;
 
 import java.util.List;
 import java.util.stream.Collectors;

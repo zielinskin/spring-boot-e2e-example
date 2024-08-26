@@ -1,9 +1,9 @@
-package zielinskin.h2example.logic;
+package zielinskin.springboote2e.logic;
 
 import org.springframework.stereotype.Service;
-import zielinskin.h2example.data.PastaEntity;
-import zielinskin.h2example.data.PastaRepository;
-import zielinskin.h2example.view.Pasta;
+import zielinskin.springboote2e.data.PastaEntity;
+import zielinskin.springboote2e.data.PastaRepository;
+import zielinskin.springboote2e.view.Pasta;
 
 import java.util.List;
 import java.util.Optional;

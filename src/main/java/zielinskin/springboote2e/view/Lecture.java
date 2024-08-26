@@ -1,4 +1,4 @@
-package zielinskin.h2example.view;
+package zielinskin.springboote2e.view;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

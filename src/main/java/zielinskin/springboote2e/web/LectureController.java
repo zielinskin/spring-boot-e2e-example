@@ -1,9 +1,9 @@
-package zielinskin.h2example.web;
+package zielinskin.springboote2e.web;
 
 
 import org.springframework.web.bind.annotation.*;
-import zielinskin.h2example.logic.LectureService;
-import zielinskin.h2example.view.Lecture;
+import zielinskin.springboote2e.logic.LectureService;
+import zielinskin.springboote2e.view.Lecture;
 
 import java.util.List;
 
