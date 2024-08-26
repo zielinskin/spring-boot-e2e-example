@@ -27,8 +27,8 @@ import org.springframework.web.servlet.view.JstlView;
 import static org.springframework.security.config.Customizer.withDefaults;
 
 @SpringBootApplication
-@EntityScan(basePackages={"zielinskin.h2example.data"})
-@EnableJpaRepositories(basePackages = {"zielinskin.h2example.data"})
+@EntityScan(basePackages={"zielinskin.springboote2e.data"})
+@EnableJpaRepositories(basePackages = {"zielinskin.springboote2e.data"})
 @EnableWebSecurity
 public class Application implements WebMvcConfigurer {
 
