@@ -1,10 +1,10 @@
-package zielinskin.h2example.logic;
+package zielinskin.springboote2e.logic;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
-import zielinskin.h2example.data.PizzaEntity;
-import zielinskin.h2example.data.PizzaRepository;
-import zielinskin.h2example.view.Pizza;
+import zielinskin.springboote2e.data.PizzaEntity;
+import zielinskin.springboote2e.data.PizzaRepository;
+import zielinskin.springboote2e.view.Pizza;
 
 import java.util.List;
 import java.util.Optional;
