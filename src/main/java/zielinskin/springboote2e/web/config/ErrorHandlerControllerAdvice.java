@@ -1,5 +1,6 @@
 package zielinskin.springboote2e.web.config;
 
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -8,6 +9,7 @@ import org.springframework.web.client.HttpServerErrorException;
 import org.springframework.web.client.HttpStatusCodeException;
 
 @ControllerAdvice
+@ConditionalOnProperty(prefix = "zielinskin", name = "enable-cascaded-error-codes", havingValue = "true")
 class ErrorHandlerControllerAdvice {
 
     @ExceptionHandler(HttpStatusCodeException.class)

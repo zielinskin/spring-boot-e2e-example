@@ -26,4 +26,6 @@ logging:
 hibernate:
   dialect: "org.hibernate.dialect.H2Dialect"
 
+zielinskin:
+  enable-cascaded-error-codes: true
 
