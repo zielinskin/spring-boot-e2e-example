@@ -53,6 +53,12 @@ public class PizzaController {
 
     }
 
+    @GetMapping("/errors/400")
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public void throw400() {
+
+    }
+
     @GetMapping()
     public List<Pizza> get() {
         return pizzaService.get();
