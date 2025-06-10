@@ -156,4 +156,12 @@ public class Application implements WebMvcConfigurer {
                 .pathsToMatch("/pastas/**")
                 .build();
     }
+
+    @Bean
+    public GroupedOpenApi testDocket() {
+        return GroupedOpenApi.builder()
+                .group("Testing")
+                .pathsToMatch("/test/**")
+                .build();
+    }
 }

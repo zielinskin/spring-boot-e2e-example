@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
     List<StudentEntity> findAll();
-    @Query(value = "select * from Students", nativeQuery = true)
     List<StudentEntity> findByGradeLessThanEqual(Double grade);
 }
