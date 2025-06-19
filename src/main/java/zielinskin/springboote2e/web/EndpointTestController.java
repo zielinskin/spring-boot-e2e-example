@@ -26,7 +26,7 @@ public class EndpointTestController {
     }
 
     @PostMapping("/test/test-endpoint")
-    public EndpointTestResults testEndpoint(EndpointTestRequest endpointTestRequest) {
+    public EndpointTestResults testEndpoint(@RequestBody EndpointTestRequest endpointTestRequest) {
         return endpointTestService.testEndpoint(endpointTestRequest);
     }
 

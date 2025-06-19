@@ -1,11 +1,11 @@
 package zielinskin.springboote2e.view;
 
 
-import java.util.Map;
+import org.springframework.util.LinkedMultiValueMap;
 
 public record EndpointTestRequest(String url,
                                   String method,
-                                  String headers,
+                                  LinkedMultiValueMap<String, String> headers,
                                   String body,
                                   Integer totalRequests,
                                   Integer threads) {

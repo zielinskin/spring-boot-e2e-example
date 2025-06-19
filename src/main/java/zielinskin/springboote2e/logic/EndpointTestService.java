@@ -1,6 +1,5 @@
 package zielinskin.springboote2e.logic;
 
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,17 +18,14 @@ import zielinskin.springboote2e.web.EndpointTestController;
 
 import java.util.*;
 import java.util.concurrent.*;
-import java.util.stream.Collectors;
 
 @Service
 public class EndpointTestService {
     private static final Logger log = LoggerFactory.getLogger(EndpointTestController.class);
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
 
-    public EndpointTestService(ObjectMapper objectMapper) {
+    public EndpointTestService() {
         this.restTemplate = new RestTemplate();
-        this.objectMapper = objectMapper;
     }
 
     public EndpointTestResults testEndpoint(EndpointTestRequest testRequest) {
@@ -80,24 +76,15 @@ public class EndpointTestService {
         List<RequestResult> results = new ArrayList<>();
         for (int i = 0; i < timesToRun; i++) {
             StopWatch stopWatch = new StopWatch();
+
+            HttpEntity<String> entity = new HttpEntity<>(testRequest.body(), testRequest.headers());
+
             stopWatch.start();
-            MultiValueMap<String, String> headers = new LinkedMultiValueMap<>();
-
-            Map<String, String> map;
-            try {
-                map = objectMapper.readValue(testRequest.headers(), new TypeReference<Map<String, String>>() {
-                });
-            } catch (Exception e) {
-                log.error("Error in endpoint test service:", e);
-                throw new RuntimeException(e);
-            }
-            map.forEach(headers::add);
-
-            HttpEntity<String> entity = new HttpEntity<>(testRequest.body(), headers);
             ResponseEntity<String> responseEntity = restTemplate.exchange(testRequest.url(),
                     HttpMethod.valueOf(testRequest.method()),
                     entity, String.class);
             stopWatch.stop();
+
             results.add(new RequestResult(
                     stopWatch.getTotalTimeMillis(),
                     responseEntity.getStatusCode().value(),
