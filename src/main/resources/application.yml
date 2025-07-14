@@ -7,7 +7,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     generate-ddl: true
-    open-session-in-view: false
+    open-in-view: false
     defer-datasource-initialization: true
   mvc:
     pathmatch:

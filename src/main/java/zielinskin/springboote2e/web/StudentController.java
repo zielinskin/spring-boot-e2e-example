@@ -31,6 +31,12 @@ class StudentController {
         return service.get(id);
     }
 
+
+    @GetMapping("/default")
+    public Student getDefault() {
+        return new Student();
+    }
+
     @GetMapping("/search")
     public List<Student> search(@RequestParam("gradeLowerThan") Double gradeLowerThan) {
         return service.search(gradeLowerThan);
