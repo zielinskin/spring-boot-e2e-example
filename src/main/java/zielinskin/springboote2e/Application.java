@@ -132,14 +132,6 @@ public class Application implements WebMvcConfigurer {
 //        return authProvider;
 //    }
 
-    @Bean
-    public GroupedOpenApi fileFix() {
-        return GroupedOpenApi.builder()
-                .group("File Fix")
-                .pathsToMatch("/fixFiles")
-                .build();
-    }
-
 
     @Bean
     public GroupedOpenApi studentDocket() {
