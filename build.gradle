@@ -28,6 +28,10 @@ dependencies {
     //commons
     implementation("commons-io:commons-io:2.19.0")
 
+    //mapstruct
+    implementation("org.mapstruct:mapstruct:1.6.3")
+    annotationProcessor ("org.mapstruct:mapstruct-processor:1.6.3")
+
     //jsp
     //todo: why can't this be a providedRuntime or runtimeOnly?
     implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'

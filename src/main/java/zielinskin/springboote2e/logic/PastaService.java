@@ -12,45 +12,29 @@ import java.util.stream.Collectors;
 @Service
 public class PastaService {
     private final PastaRepository pastaRepository;
+    private final PastaMapper pastaMapper;
 
-    public PastaService(PastaRepository pastaRepository) {
+    public PastaService(PastaRepository pastaRepository, PastaMapper pastaMapper) {
         this.pastaRepository = pastaRepository;
+        this.pastaMapper = pastaMapper;
     }
 
     public Optional<Pasta> get(Integer id) {
         return pastaRepository.findById(id)
-                .map(this::mapToView);
+                .map(pastaMapper::mapToView);
     }
 
     public List<Pasta> get() {
         return pastaRepository.findAll().stream()
-                .map(this::mapToView)
+                .map(pastaMapper::mapToView)
                 .collect(Collectors.toList());
     }
 
     public void save(Pasta view) {
-        pastaRepository.save(mapToEntity(view));
+        pastaRepository.save(pastaMapper.mapToEntity(view));
     }
 
     public void delete(Integer id) {
         pastaRepository.deleteById(id);
-    }
-
-    private Pasta mapToView(PastaEntity entity) {
-        return new Pasta(entity.getId(),
-                entity.getName(),
-                entity.getSauceType(),
-                entity.getMeatType());
-    }
-
-    private PastaEntity mapToEntity(Pasta view) {
-        PastaEntity entity = new PastaEntity();
-
-        entity.setId(view.id());
-        entity.setName(view.name());
-        entity.setSauceType(view.sauceType());
-        entity.setMeatType(view.meatType());
-
-        return entity;
     }
 }

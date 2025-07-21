@@ -1,5 +1,6 @@
 package zielinskin.springboote2e.web;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import zielinskin.springboote2e.logic.StudentService;
@@ -29,12 +30,6 @@ class StudentController {
     @GetMapping("/{id}")
     public Student get(@PathVariable Integer id) {
         return service.get(id);
-    }
-
-
-    @GetMapping("/default")
-    public Student getDefault() {
-        return new Student();
     }
 
     @GetMapping("/search")
