@@ -8,7 +8,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
 @EnableScheduling
-@ConditionalOnBooleanProperty("zielinskin.should-enable-scheduling")
+@ConditionalOnBooleanProperty(value = "zielinskin.enable-scheduling", matchIfMissing = true)
 class SchedulingConfiguration {
     private final ThreadPoolTaskScheduler taskScheduler;
     private final ScheduledTaskErrorHandler scheduledTaskErrorHandler;

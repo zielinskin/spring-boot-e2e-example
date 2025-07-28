@@ -27,7 +27,7 @@ hibernate:
   dialect: "org.hibernate.dialect.H2Dialect"
 
 zielinskin:
-  should-enable-scheduling: false
+  enable-scheduling: false
   cross-instance:
     external-instance-ip: null
     number-of-object-instances: 1000
