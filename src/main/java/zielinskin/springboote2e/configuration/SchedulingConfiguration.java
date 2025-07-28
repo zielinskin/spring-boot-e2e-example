@@ -1,13 +1,14 @@
 package zielinskin.springboote2e.configuration;
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBooleanProperty;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
 @EnableScheduling
+@ConditionalOnBooleanProperty("zielinskin.should-enable-scheduling")
 class SchedulingConfiguration {
     private final ThreadPoolTaskScheduler taskScheduler;
     private final ScheduledTaskErrorHandler scheduledTaskErrorHandler;

@@ -17,7 +17,7 @@ public class CrossInstanceController {
         this.crossInstanceService = crossInstanceService;
     }
 
-    @RequestMapping("/cross-calls/${numberOfCalls}")
+    @RequestMapping("/cross-calls/{numberOfCalls}")
     public List<Pasta> getInstances(@PathVariable("numberOfCalls") Integer numberOfCalls) {
         return crossInstanceService.getInstanceList(numberOfCalls);
     }
