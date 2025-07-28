@@ -38,6 +38,8 @@ public class PizzaService {
         pizzaRepository.deleteById(id);
     }
 
+
+    //demonstration of manual mappers
     private Pizza mapToView(PizzaEntity entity) {
         return new Pizza(entity.getId(),
                 entity.getCrust(),

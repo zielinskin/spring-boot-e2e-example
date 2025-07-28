@@ -2,6 +2,7 @@ package zielinskin.springboote2e.view;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+//demonstration of classic jackson objects
 public class Pizza {
     private final Integer id;
     private final String crust;
