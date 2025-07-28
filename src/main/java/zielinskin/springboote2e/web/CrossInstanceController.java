@@ -1,5 +1,6 @@
 package zielinskin.springboote2e.web;
 
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,7 +18,7 @@ public class CrossInstanceController {
         this.crossInstanceService = crossInstanceService;
     }
 
-    @RequestMapping("/cross-calls/{numberOfCalls}")
+    @GetMapping("/cross-calls/{numberOfCalls}")
     public List<Pasta> getInstances(@PathVariable("numberOfCalls") Integer numberOfCalls) {
         return crossInstanceService.getInstanceList(numberOfCalls);
     }

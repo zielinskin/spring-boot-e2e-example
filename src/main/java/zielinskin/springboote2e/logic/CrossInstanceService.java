@@ -36,7 +36,7 @@ public class CrossInstanceService {
         if(remainingCalls <= 0) {
             return instanceList;
         } else {
-            return restTemplate.exchange(String.format("http://%s/cross-instance/cross-calls/%d",
+            return restTemplate.exchange(String.format("http://%s:8080/cross-instance/cross-calls/%d",
                     crossInstancePropertySource.getExternalInstanceIp(),
                     remainingCalls - 1),
                     HttpMethod.GET,

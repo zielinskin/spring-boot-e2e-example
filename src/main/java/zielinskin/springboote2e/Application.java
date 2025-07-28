@@ -149,10 +149,10 @@ public class Application implements WebMvcConfigurer {
     }
 
     @Bean
-    public GroupedOpenApi testDocket() {
+    public GroupedOpenApi crossInstanceDocket() {
         return GroupedOpenApi.builder()
-                .group("Testing")
-                .pathsToMatch("/test/**")
+                .group("Cross Instance")
+                .pathsToMatch("/cross-instance/**")
                 .build();
     }
 }
