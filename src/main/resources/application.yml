@@ -18,6 +18,9 @@ springdoc:
     csrf:
       enabled: true
 
+server:
+  tomcat:
+    accept-count: 1000
 
 logging:
   level:
@@ -29,5 +32,5 @@ hibernate:
 zielinskin:
   enable-scheduling: false
   cross-instance:
-    external-instance-ip: null
+    external-instance-ip: 192.168.1.4
     number-of-object-instances: 1000
