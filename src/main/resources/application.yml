@@ -22,8 +22,8 @@ server:
   tomcat:
     accept-count: 1000
     max-connections: 10000
-#    threads:
-#      max: 1000
+    threads:
+      max: 1000
 
 logging:
   level:
@@ -35,5 +35,5 @@ hibernate:
 zielinskin:
   enable-scheduling: false
   cross-instance:
-    external-instance-ip: 192.168.1.4
-    number-of-object-instances: 15000
+    external-instance-ip: null
+    number-of-object-instances: 1050

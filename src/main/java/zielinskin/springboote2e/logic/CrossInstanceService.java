@@ -23,7 +23,7 @@ public class CrossInstanceService {
         this.crossInstancePropertySource = crossInstancePropertySource;
         this.restTemplate = restTemplateBuilder.build();
 
-        for(int i = 0; i < crossInstancePropertySource.getNumberOfObjectInstances(); i++) {
+        for(int i = 0; i < crossInstancePropertySource.numberOfObjectInstances(); i++) {
             instanceList.add(new Pasta(i,
                     "name" + i,
                     "sauce" + i,
@@ -37,7 +37,7 @@ public class CrossInstanceService {
             return instanceList;
         } else {
             return restTemplate.exchange(String.format("http://%s:8080/cross-instance/cross-calls/%d",
-                    crossInstancePropertySource.getExternalInstanceIp(),
+                    crossInstancePropertySource.externalInstanceIp(),
                     remainingCalls - 1),
                     HttpMethod.GET,
                     new HttpEntity<>(null),
