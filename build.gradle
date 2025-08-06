@@ -1,10 +1,6 @@
 plugins {
-    id 'java'
-    id 'war'
-    id 'org.springframework.boot' version '3.5.0'
+    id 'org.springframework.boot' version '3.5.0' apply false
 }
-
-apply plugin: "io.spring.dependency-management"
 
 group 'zielinskin.spring-boot-e2e-example'
 
@@ -14,33 +10,36 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
-    //spring
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
-    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
-    //implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security'
-    implementation group: 'org.springframework', name: 'spring-webmvc'
+subprojects {
+    apply plugin: "java"
+    apply plugin: "io.spring.dependency-management"
 
-    //open api
-    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
+    dependencyManagement {
+        imports {
+            mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+        }
+    }
 
-    //commons
-    implementation("commons-io:commons-io:2.19.0")
+    group 'zielinskin.spring-boot-e2e-example'
 
-    //mapstruct
-    implementation("org.mapstruct:mapstruct:1.6.3")
-    annotationProcessor ("org.mapstruct:mapstruct-processor:1.6.3")
+    version project.parent.version
 
-    //jsp
-    //todo: why can't this be a providedRuntime or runtimeOnly?
-    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
-    implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.1'
-    implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
+    repositories {
+        mavenCentral()
+    }
 
-    //h2
-    runtimeOnly 'com.h2database:h2'
+    dependencies {
+        //spring
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter'
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
+        implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+        implementation group: 'org.springframework', name: 'spring-webmvc'
 
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'
+        //commons
+        implementation("commons-io:commons-io:2.19.0")
+
+        testImplementation group: 'junit', name: 'junit', version: '4.12'
+        testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'
+    }
 }
+

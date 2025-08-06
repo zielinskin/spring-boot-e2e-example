@@ -1,0 +1,19 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    implementation project(":cross-instance")
+    implementation project(":school")
+    implementation project(":restaurant")
+
+    //open api
+    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
+
+    //jsp
+    //todo: why can't this be a providedRuntime or runtimeOnly?
+    implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper'
+    implementation group: 'jakarta.servlet.jsp.jstl', name: 'jakarta.servlet.jsp.jstl-api', version: '3.0.1'
+    implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '3.0.1'
+
+    //h2
+    runtimeOnly 'com.h2database:h2'
+}
