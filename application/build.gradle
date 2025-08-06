@@ -5,6 +5,9 @@ dependencies {
     implementation project(":school")
     implementation project(":restaurant")
 
+    // OPTIONAL: add in form based security
+    // implementation project(":security")
+
     //open api
     implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0"
 

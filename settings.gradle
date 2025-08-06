@@ -4,4 +4,5 @@ include 'school'
 include 'restaurant'
 include 'cross-instance'
 include 'application'
+include 'security'
 
