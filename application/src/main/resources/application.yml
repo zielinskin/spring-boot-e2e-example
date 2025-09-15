@@ -25,9 +25,9 @@ server:
     threads:
       max: 1000
 
-logging:
-  level:
-    root: DEBUG
+#logging:
+#  level:
+#    root: DEBUG
 
 hibernate:
   dialect: "org.hibernate.dialect.H2Dialect"
@@ -35,5 +35,5 @@ hibernate:
 zielinskin:
   enable-scheduling: false
   cross-instance:
-    external-instance-ip: null
-    number-of-object-instances: 1050
+    external-instance-ip: 127.0.0.1
+    number-of-object-instances: 100

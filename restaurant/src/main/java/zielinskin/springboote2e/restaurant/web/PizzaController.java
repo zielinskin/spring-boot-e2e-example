@@ -1,16 +1,15 @@
 package zielinskin.springboote2e.restaurant.web;
 
 import org.springframework.web.bind.annotation.*;
-import zielinskin.springboote2e.restaurant.logic.PizzaService;
-import zielinskin.springboote2e.restaurant.view.Pizza;
+import zielinskin.springboote2e.restaurant.api.Pizza;
+import zielinskin.springboote2e.restaurant.api.PizzaService;
 
 import java.util.List;
-
 
 //demonstration of regular bean definition approach
 @RestController
 @RequestMapping("/pizzas")
-public class PizzaController {
+class PizzaController {
     private final PizzaService pizzaService;
 
     public PizzaController(PizzaService pizzaService) {
@@ -18,7 +17,7 @@ public class PizzaController {
     }
 
     @GetMapping("/{id}")
-    public Pizza get(@PathVariable Integer id) {
+    public Pizza get(@PathVariable("id") Integer id) {
         return pizzaService.get(id)
                 .orElse(null);
     }
@@ -34,7 +33,7 @@ public class PizzaController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Integer id) {
+    public void delete(@PathVariable("id") Integer id) {
         pizzaService.delete(id);
     }
 }

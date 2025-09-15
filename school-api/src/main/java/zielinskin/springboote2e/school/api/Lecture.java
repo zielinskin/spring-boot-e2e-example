@@ -1,4 +1,4 @@
-package zielinskin.springboote2e.school.view;
+package zielinskin.springboote2e.school.api;
 
 import java.util.Set;
 

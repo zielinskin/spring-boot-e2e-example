@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import zielinskin.common.logic.CrudService;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 public abstract class AbstractCrudController<V, ID, S extends CrudService<V, ID>> {
     protected final S service;
@@ -14,8 +15,8 @@ public abstract class AbstractCrudController<V, ID, S extends CrudService<V, ID>
     }
 
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
-    public void save(@RequestBody V view) {
-        service.save(view);
+    public V save(@RequestBody V view) {
+        return service.save(view);
     }
 
     @GetMapping()
@@ -24,12 +25,13 @@ public abstract class AbstractCrudController<V, ID, S extends CrudService<V, ID>
     }
 
     @GetMapping("/{id}")
-    public V get(@PathVariable ID id) {
-        return service.get(id);
+    public V get(@PathVariable("id") ID id) {
+        return service.get(id)
+                .orElseThrow(NoSuchElementException::new);
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable ID id) {
+    public void delete(@PathVariable("id") ID id) {
         service.delete(id);
     }
 

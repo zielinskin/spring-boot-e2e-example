@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+
 @Configuration
 @EntityScan(basePackages={"zielinskin.springboote2e.restaurant.data"})
 @EnableJpaRepositories(basePackages = {"zielinskin.springboote2e.restaurant.data"})
-public class RestaurantConfiguration {
+class RestaurantInstrumentationConfiguration {
     @Bean
     public GroupedOpenApi pizzaDockets() {
         return GroupedOpenApi.builder()

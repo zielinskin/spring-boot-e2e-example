@@ -39,14 +39,7 @@ public abstract class AbstractCrudService<E, V, ID, R extends CrudRepository<E, 
                 .collect(Collectors.toList());
     }
 
-    public V get(ID id) {
-        return repository.findById(id)
-                .map(mapper::mapToView)
-                .orElseThrow(() ->
-                        new RuntimeException("There wasn't one, duh."));
-    }
-
-    public Optional<V> getOptional(ID id) {
+    public Optional<V> get(ID id) {
         return repository.findById(id)
                 .map(mapper::mapToView);
     }

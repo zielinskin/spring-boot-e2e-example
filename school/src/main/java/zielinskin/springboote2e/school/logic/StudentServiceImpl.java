@@ -2,26 +2,26 @@ package zielinskin.springboote2e.school.logic;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import zielinskin.common.logic.AbstractCrudService;
 import zielinskin.common.logic.BiMapper;
+import zielinskin.springboote2e.school.api.Student;
+import zielinskin.springboote2e.school.api.StudentService;
 import zielinskin.springboote2e.school.data.StudentEntity;
 import zielinskin.springboote2e.school.data.StudentRepository;
-import zielinskin.springboote2e.school.view.Student;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class StudentService extends AbstractCrudService<StudentEntity, Student, Integer, StudentRepository> {
-    private static final Logger logger = LoggerFactory.getLogger(StudentService.class);
+class StudentServiceImpl extends AbstractCrudService<StudentEntity, Student, Integer, StudentRepository> implements StudentService {
+    private static final Logger logger = LoggerFactory.getLogger(StudentServiceImpl.class);
 
-    public StudentService(StudentRepository repository,
-                          BiMapper<Student, StudentEntity> mapper) {
+    public StudentServiceImpl(StudentRepository repository,
+                              BiMapper<Student, StudentEntity> mapper) {
         super(repository, mapper);
     }
 

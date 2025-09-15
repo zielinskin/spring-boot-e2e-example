@@ -4,6 +4,7 @@ dependencies {
     implementation project(":cross-instance")
     implementation project(":school")
     implementation project(":restaurant")
+    implementation project(":preferences")
 
     // OPTIONAL: add in form based security
     // implementation project(":security")

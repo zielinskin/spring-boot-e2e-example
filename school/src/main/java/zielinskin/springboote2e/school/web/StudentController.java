@@ -2,10 +2,9 @@ package zielinskin.springboote2e.school.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import zielinskin.common.logic.CrudService;
 import zielinskin.common.web.AbstractCrudController;
-import zielinskin.springboote2e.school.logic.StudentService;
-import zielinskin.springboote2e.school.view.Student;
+import zielinskin.springboote2e.school.api.Student;
+import zielinskin.springboote2e.school.api.StudentService;
 
 import java.util.List;
 

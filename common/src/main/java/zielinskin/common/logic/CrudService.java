@@ -1,6 +1,7 @@
 package zielinskin.common.logic;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CrudService<V, ID> {
     void delete(ID id);
@@ -11,5 +12,5 @@ public interface CrudService<V, ID> {
 
     List<V> get();
 
-    V get(ID id);
+    Optional<V> get(ID id);
 }

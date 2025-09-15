@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @Configuration
 @EntityScan(basePackages={"zielinskin.springboote2e.school.data"})
 @EnableJpaRepositories(basePackages = {"zielinskin.springboote2e.school.data"})
-public class SchoolConfiguration {
+class SchoolInstrumentationConfiguration {
     @Bean
     public GroupedOpenApi studentDocket() {
         return GroupedOpenApi.builder()

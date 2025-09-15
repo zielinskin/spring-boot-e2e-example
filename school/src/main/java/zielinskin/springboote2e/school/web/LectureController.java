@@ -1,14 +1,11 @@
 package zielinskin.springboote2e.school.web;
 
 
-import org.springframework.web.bind.annotation.*;
-import zielinskin.common.logic.AbstractCrudService;
-import zielinskin.common.logic.CrudService;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import zielinskin.common.web.AbstractCrudController;
-import zielinskin.springboote2e.school.logic.LectureService;
-import zielinskin.springboote2e.school.view.Lecture;
-
-import java.util.List;
+import zielinskin.springboote2e.school.api.Lecture;
+import zielinskin.springboote2e.school.api.LectureService;
 
 @RestController
 @RequestMapping("/lectures")

@@ -1,4 +1,4 @@
-package zielinskin.springboote2e.restaurant.view;
+package zielinskin.springboote2e.restaurant.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

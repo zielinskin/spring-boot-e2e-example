@@ -2,9 +2,10 @@ package zielinskin.springboote2e.restaurant.logic;
 
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
+import zielinskin.springboote2e.restaurant.api.Pizza;
+import zielinskin.springboote2e.restaurant.api.PizzaService;
 import zielinskin.springboote2e.restaurant.data.PizzaEntity;
 import zielinskin.springboote2e.restaurant.data.PizzaRepository;
-import zielinskin.springboote2e.restaurant.view.Pizza;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,10 +13,10 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class PizzaService {
+class PizzaServiceImpl implements PizzaService {
     private final PizzaRepository pizzaRepository;
 
-    public PizzaService(PizzaRepository pizzaRepository) {
+    public PizzaServiceImpl(PizzaRepository pizzaRepository) {
         this.pizzaRepository = pizzaRepository;
     }
 

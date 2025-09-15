@@ -6,3 +6,8 @@ include 'cross-instance'
 include 'application'
 include 'security'
 
+
+include 'school-api'
+include 'restaurant-api'
+include 'preferences'
+include 'preferences-api'

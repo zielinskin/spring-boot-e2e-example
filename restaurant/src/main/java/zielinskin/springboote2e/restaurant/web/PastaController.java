@@ -1,15 +1,14 @@
 package zielinskin.springboote2e.restaurant.web;
 
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import zielinskin.common.web.AbstractCrudController;
-import zielinskin.springboote2e.restaurant.logic.PastaService;
-import zielinskin.springboote2e.restaurant.view.Pasta;
-
-import java.util.List;
+import zielinskin.springboote2e.restaurant.api.Pasta;
+import zielinskin.springboote2e.restaurant.api.PastaService;
 
 @RestController
 @RequestMapping("/pastas")
-public class PastaController extends AbstractCrudController<Pasta, Integer, PastaService> {
+class PastaController extends AbstractCrudController<Pasta, Integer, PastaService> {
     public PastaController(PastaService service) {
         super(service);
     }
