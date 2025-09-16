@@ -48,10 +48,10 @@ public class SecurityConfiguration {
     public SecurityFilterChain formLoginFilterChain(HttpSecurity http, UserDetailsService userDetailsService) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest()
-                        .hasRole("USER")
-                )
+                .authorizeHttpRequests(authorize ->
+                        authorize
+                                .anyRequest()
+                                .hasRole("USER"))
                 .userDetailsService(userDetailsService)
                 .formLogin(withDefaults());
         return http.build();

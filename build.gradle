@@ -38,8 +38,8 @@ subprojects {
         //commons
         implementation("commons-io:commons-io:2.19.0")
 
-        testImplementation group: 'junit', name: 'junit', version: '4.12'
-        testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.10.0'
+        testImplementation("org.junit.jupiter:junit-jupiter-engine:5.13.4")
+        testImplementation("org.mockito:mockito-core:5.19.0")
     }
 }
 
