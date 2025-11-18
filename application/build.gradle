@@ -6,6 +6,10 @@ dependencies {
     implementation project(":restaurant")
     implementation project(":preferences")
 
+    // OPTIONAL: add in kafka message topics
+    // NOTE: you will need to host your own kafka topics
+    //implementation project(":kafka")
+
     // OPTIONAL: add in form based security
     // implementation project(":security")
 
