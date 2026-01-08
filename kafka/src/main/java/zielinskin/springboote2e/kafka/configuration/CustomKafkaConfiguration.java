@@ -17,7 +17,6 @@ public class CustomKafkaConfiguration {
         return TopicBuilder.name(TOPIC_NAME)
                 .partitions(10)
                 .replicas(1)
-                .compact()
                 .build();
     }
 

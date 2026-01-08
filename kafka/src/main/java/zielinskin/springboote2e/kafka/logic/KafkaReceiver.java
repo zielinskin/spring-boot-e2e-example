@@ -19,7 +19,7 @@ public class KafkaReceiver {
     @KafkaListener(id = "group1",
             topics = TOPIC_NAME,
             autoStartup = "true",
-            concurrency = "5")
+            concurrency = "10")
     public void listen(ConsumerRecord<String, String> record) {
         try {
             Thread.sleep((int) (Math.random() * 100));
