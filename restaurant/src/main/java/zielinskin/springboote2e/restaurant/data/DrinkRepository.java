@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface DrinkRepository extends CrudRepository<DrinkEntity, Integer> {
     List<DrinkEntity> findAll();
+
+    Integer Id(Integer id);
 }
